@@ -11,28 +11,28 @@ const config: Config = {
       colors: {
         // Palette professionnelle MS Constructions 47 - Design premium blanc
         primary: {
-          50: '#eff6ff',   // Bleu très clair
-          100: '#dbeafe',  // Bleu clair
-          200: '#bfdbfe',  // Bleu moyen clair
-          300: '#93c5fd',  // Bleu moyen
-          400: '#60a5fa',  // Bleu
-          500: '#2563eb',  // BLEU PROFESSIONNEL - couleur principale du logo
-          600: '#1d4ed8',  // Bleu foncé
-          700: '#1e40af',  // Bleu très foncé
-          800: '#1e3a8a',  // Bleu marine
-          900: '#1e293b',  // Bleu marine foncé
+          50: '#e3f2fd',   // Bleu très clair
+          100: '#bbdefb',  // Bleu clair
+          200: '#90caf9',  // Bleu moyen clair
+          300: '#64b5f6',  // Bleu moyen
+          400: '#42a5f5',  // Bleu
+          500: '#1E88E5',  // BLEU LOGO EXACT - couleur principale du logo
+          600: '#1976d2',  // Bleu foncé
+          700: '#1565c0',  // Bleu très foncé
+          800: '#0d47a1',  // Bleu marine
+          900: '#0a3984',  // Bleu marine foncé
         },
         secondary: {
-          50: '#fef2f2',   // Rouge très clair
-          100: '#fee2e2',  // Rouge clair
-          200: '#fecaca',  // Rouge moyen clair
-          300: '#fca5a5',  // Rouge moyen
-          400: '#f87171',  // Rouge
-          500: '#dc2626',  // ROUGE PROFESSIONNEL - couleur secondaire du logo
-          600: '#b91c1c',  // Rouge foncé
-          700: '#991b1b',  // Rouge très foncé
-          800: '#7f1d1d',  // Rouge bordeaux
-          900: '#7c2d12',  // Rouge bordeaux foncé
+          50: '#ffebee',   // Rouge très clair
+          100: '#ffcdd2',  // Rouge clair
+          200: '#ef9a9a',  // Rouge moyen clair
+          300: '#e57373',  // Rouge moyen
+          400: '#ef5350',  // Rouge
+          500: '#E53935',  // ROUGE LOGO EXACT - couleur secondaire du logo
+          600: '#d32f2f',  // Rouge foncé
+          700: '#c62828',  // Rouge très foncé
+          800: '#b71c1c',  // Rouge bordeaux
+          900: '#a01716',  // Rouge bordeaux foncé
         },
         accent: {
           50: '#f8fafc',   // Gris très clair

@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { v } from '@/lib/version';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon, PhoneIcon } from '@heroicons/react/24/outline';
@@ -27,7 +26,6 @@ const Header: React.FC = () => {
     { name: 'Accueil', href: '/' },
     { name: 'Services', href: '/services' },
     { name: 'Réalisations', href: '/realisations' },
-    { name: 'Témoignages', href: '/temoignages' },
     { name: 'À propos', href: '/a-propos' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -46,7 +44,7 @@ const Header: React.FC = () => {
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+        <div className="flex justify-between items-center h-20">
           {/* Logo professionnel amélioré */}
           <Link href="/" className="flex items-center space-x-4 group">
             <motion.div
@@ -55,19 +53,19 @@ const Header: React.FC = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Image
-                src={'/Logo Ms Constructions.png'}
+                src="/Logo Ms Constructions.png"
                 alt="MS Constructions"
-                width={50}
-                height={50}
-                className="w-auto h-10 lg:h-14"
+                width={55}
+                height={55}
+                className="w-auto h-14"
                 priority
               />
             </motion.div>
             <div className="flex flex-col justify-center">
-              <span className="text-lg lg:text-2xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+              <span className="text-2xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
                 MS Constructions
               </span>
-              <span className="text-xs lg:text-sm text-gray-700 font-medium hidden sm:block">Lot-et-Garonne</span>
+              <span className="text-sm text-gray-500 font-medium">Lot-et-Garonne</span>
             </div>
           </Link>
 
@@ -79,12 +77,19 @@ const Header: React.FC = () => {
                 href={link.href}
                 className={`relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg group ${
                   isActive(link.href)
-                    ? 'text-secondary-700 bg-secondary-50 border-b-2 border-secondary-600'
-                    : 'text-gray-900 hover:text-primary-600 hover:bg-gray-50'
+                    ? 'text-primary-600 bg-primary-50'
+                    : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
                 }`}
               >
                 {link.name}
-                {/* Active underline handled via border-b when active */}
+                {isActive(link.href) && (
+                  <motion.div
+                    className="absolute -bottom-1 left-1/2 w-1.5 h-1.5 bg-primary-600 rounded-full"
+                    layoutId="activeIndicator"
+                    initial={false}
+                    style={{ x: '-50%' }}
+                  />
+                )}
               </Link>
             ))}
           </nav>
@@ -101,16 +106,16 @@ const Header: React.FC = () => {
               <span className="font-medium text-sm">05 53 12 34 56</span>
             </motion.a>
 
-            {/* CTA Button Rouge (plus visible) */}
+            {/* CTA Button Rouge */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Link
                 href="/contact"
-                className="bg-secondary-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-secondary-700 transition-colors duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-500"
+                className="bg-secondary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary-700 transition-colors duration-200 shadow-sm hover:shadow-md"
               >
-                Demander un devis gratuit
+                Devis gratuit
               </Link>
             </motion.div>
           </div>
@@ -118,7 +123,7 @@ const Header: React.FC = () => {
           {/* Menu Mobile Button */}
           <motion.button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-gray-900 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -165,8 +170,8 @@ const Header: React.FC = () => {
                     href={link.href}
                     className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                       isActive(link.href)
-                        ? 'text-secondary-700 bg-secondary-50 border-l-4 border-secondary-600'
-                        : 'text-gray-900 hover:text-primary-600 hover:bg-gray-50'
+                        ? 'text-primary-600 bg-primary-50'
+                        : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >

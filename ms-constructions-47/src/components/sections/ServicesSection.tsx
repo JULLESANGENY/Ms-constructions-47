@@ -23,7 +23,8 @@ const ServicesSection = () => {
       icon: HomeIcon,
       features: ["Fondations béton", "Murs porteurs", "Cloisons", "Enduits"],
       price: "À partir de 80€/m²",
-      image: "🏗️"
+      image: "🏗️",
+      imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=60"
     },
     {
       title: "Rénovation Complète",
@@ -31,7 +32,8 @@ const ServicesSection = () => {
       icon: WrenchScrewdriverIcon,
       features: ["Rénovation totale", "Finitions premium", "Conseils déco", "Suivi de projet"],
       price: "Devis personnalisé",
-      image: "🔧"
+      image: "🔧",
+      imageUrl: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=900&q=60"
     },
     {
       title: "Extension & Agrandissement",
@@ -39,7 +41,8 @@ const ServicesSection = () => {
       icon: BuildingOfficeIcon,
       features: ["Extension maison", "Véranda", "Garage", "Terrasse couverte"],
       price: "À partir de 1500€/m²",
-      image: "🏠"
+      image: "🏠",
+      imageUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=60"
     },
     {
       title: "Aménagement Extérieur",
@@ -47,7 +50,8 @@ const ServicesSection = () => {
       icon: CubeIcon,
       features: ["Terrasses", "Allées", "Murets", "Dalles béton"],
       price: "À partir de 60€/m²",
-      image: "🌟"
+      image: "🌟",
+      imageUrl: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=60"
     },
   ]
 
@@ -62,40 +66,31 @@ const ServicesSection = () => {
     }
   }
 
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 50,
-      scale: 0.95
-    },
+  const cardVariants: any = {
+    hidden: { opacity: 0, y: 40, scale: 0.98 },
     visible: { 
       opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12,
-        duration: 0.6
-      }
+      y: 0, 
+      scale: 1, 
+      transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
     }
   }
 
   return (
-    <section ref={ref} className="py-24 bg-gray-50">
+    <section ref={ref} className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* En-tête de section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <motion.div
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : { scale: 0 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center rounded-full bg-primary-100 border border-primary-200 px-6 py-2 text-sm font-semibold text-primary-700 mb-6"
+            className="inline-flex items-center rounded-full bg-primary-200/70 border border-primary-300 px-6 py-2 text-sm font-semibold text-primary-900 mb-4"
           >
             <div className="w-2 h-2 bg-primary-500 rounded-full mr-3 animate-pulse-gentle"></div>
             Nos services premium
@@ -105,7 +100,7 @@ const ServicesSection = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-4"
           >
             Une expertise complète
             <span className="block text-primary-600">pour tous vos projets</span>
@@ -115,7 +110,7 @@ const ServicesSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto"
           >
             Des solutions complètes pour tous vos projets de maçonnerie, 
             de la construction à la rénovation, avec 35 ans d'expertise à votre service.
@@ -127,7 +122,7 @@ const ServicesSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"
         >
           {services.map((service, index) => (
             <motion.div
@@ -138,25 +133,14 @@ const ServicesSection = () => {
               whileHover={{ y: -5 }}
               className="relative group cursor-pointer"
             >
-              <div className="h-full bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-200">
-                
-                {/* Icône et emoji */}
-                <div className="flex items-center justify-between mb-6">
-                  <motion.div
-                    className="text-4xl"
-                    animate={hoveredCard === index ? { scale: [1, 1.2, 1] } : {}}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                  >
-                    {service.image}
-                  </motion.div>
-                  
-                  <motion.div
-                    animate={hoveredCard === index ? { rotate: [0, 10, 0] } : {}}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center"
-                  >
-                    <service.icon className="w-6 h-6 text-primary-600" />
-                  </motion.div>
+              <div className="h-full bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-200">
+                {/* Image de tête */}
+                <div className="relative h-40 rounded-xl overflow-hidden mb-6">
+                  <img src={service.imageUrl} alt={service.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-3 left-3 w-10 h-10 bg-white/90 backdrop-blur rounded-lg flex items-center justify-center shadow">
+                    <service.icon className="w-5 h-5 text-primary-600" />
+                  </div>
                 </div>
 
                 {/* Contenu */}
@@ -165,7 +149,7 @@ const ServicesSection = () => {
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-800 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -179,7 +163,7 @@ const ServicesSection = () => {
                         className="flex items-center space-x-3 text-sm"
                       >
                         <CheckIcon className="w-4 h-4 text-primary-500 flex-shrink-0" />
-                        <span className="text-gray-600">{feature}</span>
+                        <span className="text-gray-800">{feature}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -192,19 +176,20 @@ const ServicesSection = () => {
                         animate={hoveredCard === index ? { x: 5 } : { x: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <ArrowRightIcon className="w-5 h-5 text-gray-400 group-hover:text-primary-600 transition-colors" />
+                        <ArrowRightIcon className="w-5 h-5 text-gray-700 group-hover:text-primary-600 transition-colors" />
                       </motion.div>
                     </div>
                   </div>
 
                   {/* CTA Button */}
-                  <motion.button
+                  <motion.a
+                    href="/contact"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full mt-4 px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors duration-200 opacity-0 group-hover:opacity-100"
+                    className="w-full mt-4 px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors duration-200 shadow-md hover:shadow-lg"
                   >
-                    En savoir plus
-                  </motion.button>
+                    Demander un devis
+                  </motion.a>
                 </div>
               </div>
             </motion.div>

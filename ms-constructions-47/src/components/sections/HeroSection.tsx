@@ -25,7 +25,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center bg-white pt-20 pb-16 overflow-hidden"
+      className="relative min-h-[80vh] flex items-center justify-center bg-white pt-16 pb-12 overflow-hidden"
     >
       {/* Pattern de fond subtil */}
       <div className="absolute inset-0 bg-dot-pattern opacity-30" style={{backgroundSize: '20px 20px'}}></div>
@@ -48,7 +48,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center rounded-full bg-primary-50 border border-primary-100 px-6 py-2 text-sm font-semibold text-primary-700 mb-8"
+              className="inline-flex items-center rounded-full bg-primary-100/70 border border-primary-200 px-6 py-2 text-sm font-semibold text-primary-800 mb-6"
             >
               <div className="w-2 h-2 bg-primary-500 rounded-full mr-3 animate-pulse-gentle"></div>
               35 ans d'expérience • Lot-et-Garonne
@@ -59,7 +59,7 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-6 text-gray-900"
+        className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-4 text-gray-900"
             >
               <span className="block">Votre expert en</span>
               <span className="block text-primary-600">maçonnerie</span>
@@ -71,7 +71,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+        className="text-lg sm:text-xl text-gray-700 mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
               Depuis 35 ans, MS Constructions 47 réalise vos projets de maçonnerie avec 
               <span className="font-semibold text-gray-900"> expertise</span> et 
@@ -84,7 +84,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8"
             >
               {features.map((feature, index) => (
                 <motion.div
@@ -162,7 +162,7 @@ const HeroSection = () => {
                     </div>
                     <div>
                       <div className="text-2xl font-bold text-gray-900">{stat.number}</div>
-                      <div className="text-sm text-gray-600">{stat.label}</div>
+                      <div className="text-sm text-gray-800">{stat.label}</div>
                     </div>
                   </motion.div>
                 ))}
@@ -198,7 +198,7 @@ const HeroSection = () => {
               className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center"
             >
               <h4 className="font-bold text-gray-900 mb-3">Zone d'intervention</h4>
-              <p className="text-gray-600 text-sm mb-4">
+              <p className="text-gray-800 text-sm mb-4">
                 Nous intervenons dans tout le département du Lot-et-Garonne
               </p>
               <div className="flex flex-wrap gap-2 justify-center">

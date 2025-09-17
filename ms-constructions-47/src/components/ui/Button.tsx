@@ -1,4 +1,6 @@
-import { cn } from "@/lib/utils"
+function cnSimple(...classes: Array<string | undefined>) {
+  return classes.filter(Boolean).join(' ')
+}
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
@@ -17,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   
   const variants = {
     primary: "bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500 shadow-md hover:shadow-lg",
-    secondary: "bg-secondary-500 text-neutral-900 hover:bg-secondary-600 focus:ring-secondary-500 shadow-md hover:shadow-lg",
+    secondary: "bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500 shadow-md hover:shadow-lg",
     outline: "border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white focus:ring-primary-500",
     ghost: "text-primary-500 hover:bg-primary-50 focus:ring-primary-500"
   }
@@ -31,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
   
   return (
     <button 
-      className={cn(baseStyles, variants[variant], sizes[size], className)}
+      className={cnSimple(baseStyles, variants[variant], sizes[size], className)}
       {...props}
     >
       {children}

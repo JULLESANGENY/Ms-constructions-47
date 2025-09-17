@@ -17,10 +17,10 @@ const Footer = () => {
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   const socialLinks = [
-    { name: 'Facebook', icon: '📘', url: '#' },
-    { name: 'Instagram', icon: '📸', url: '#' },
+    { name: 'Facebook', icon: '📘', url: 'https://facebook.com/ms-constructions-47' },
+    { name: 'Google Business', icon: '�️', url: 'https://www.google.com/maps/place/Agen' },
     { name: 'LinkedIn', icon: '💼', url: '#' },
-    { name: 'YouTube', icon: '🎥', url: '#' },
+    { name: 'Pages Jaunes', icon: '📞', url: 'https://www.pagesjaunes.fr' },
   ]
 
   const quickLinks = [
@@ -70,7 +70,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-800 leading-relaxed">
               <span className="font-semibold text-gray-900">35 ans d&apos;expertise</span> dans la maçonnerie. 
               Votre partenaire de confiance pour tous vos projets de construction 
               et rénovation dans le Lot-et-Garonne.
@@ -88,12 +88,29 @@ const Footer = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  className="flex items-center space-x-3 text-sm text-gray-600 hover:text-primary-600 transition-colors"
+                  className="flex items-center space-x-3 text-sm text-gray-800 hover:text-primary-600 transition-colors"
                 >
                   <span className="text-base">{cert.icon}</span>
                   <span className="font-medium">{cert.name}</span>
                 </motion.div>
               ))}
+            </div>
+
+            {/* Adresse complète */}
+            <div className="space-y-3">
+              <h4 className="text-lg font-semibold text-gray-900 flex items-center">
+                <MapPinIcon className="w-5 h-5 text-secondary-600 mr-2" />
+                Adresse
+              </h4>
+              <div className="text-sm text-gray-800 space-y-1">
+                <p className="font-medium text-gray-900">MS Constructions 47</p>
+                <p>15 Avenue de la République</p>
+                <p>47000 Agen</p>
+                <p>Lot-et-Garonne, Nouvelle-Aquitaine</p>
+                <p className="text-xs text-gray-700 mt-2">
+                  SIRET: 123 456 789 00012
+                </p>
+              </div>
             </div>
 
             {/* Réseaux sociaux */}
@@ -104,6 +121,8 @@ const Footer = () => {
                   <motion.a
                     key={index}
                     href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     className="w-10 h-10 bg-gray-100 hover:bg-primary-100 rounded-lg flex items-center justify-center transition-colors text-lg"
@@ -112,6 +131,9 @@ const Footer = () => {
                   </motion.a>
                 ))}
               </div>
+              <p className="text-xs text-gray-700">
+                Retrouvez-nous sur Google My Business et Facebook
+              </p>
             </div>
           </motion.div>
 
@@ -134,7 +156,7 @@ const Footer = () => {
                 >
                   <Link
                     href={link.href}
-                    className="block text-gray-600 hover:text-primary-600 font-medium transition-colors py-1"
+                    className="block text-gray-800 hover:text-primary-600 font-medium transition-colors py-1"
                   >
                     {link.name}
                   </Link>
@@ -159,7 +181,7 @@ const Footer = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ delay: 0.4 + index * 0.05 }}
-                  className="text-gray-600 hover:text-primary-600 font-medium transition-colors py-1 cursor-pointer"
+                  className="text-gray-800 hover:text-primary-600 font-medium transition-colors py-1 cursor-pointer"
                 >
                   {service}
                 </motion.div>
@@ -190,7 +212,7 @@ const Footer = () => {
                   <p className="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
                     05 53 12 34 56
                   </p>
-                  <p className="text-sm text-gray-600">Appel gratuit</p>
+                  <p className="text-sm text-gray-800">Appel gratuit</p>
                 </div>
               </motion.a>
 
@@ -201,35 +223,35 @@ const Footer = () => {
                 className="flex items-center space-x-3 p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors group"
               >
                 <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <EnvelopeIcon className="w-5 h-5 text-gray-600" />
+                  <EnvelopeIcon className="w-5 h-5 text-gray-800" />
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
                     Email
                   </p>
-                  <p className="text-sm text-gray-600">Réponse rapide</p>
+                  <p className="text-sm text-gray-800">Réponse rapide</p>
                 </div>
               </motion.a>
 
               {/* Adresse */}
               <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
                 <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <MapPinIcon className="w-5 h-5 text-gray-600" />
+                  <MapPinIcon className="w-5 h-5 text-gray-800" />
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">Zone d&apos;intervention</p>
-                  <p className="text-sm text-gray-600">Tout le Lot-et-Garonne</p>
+                  <p className="text-sm text-gray-800">Tout le Lot-et-Garonne</p>
                 </div>
               </div>
 
               {/* Horaires */}
               <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
                 <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <ClockIcon className="w-5 h-5 text-gray-600" />
+                  <ClockIcon className="w-5 h-5 text-gray-800" />
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">Horaires</p>
-                  <p className="text-sm text-gray-600">Lun-Sam : 7h-19h</p>
+                  <p className="text-sm text-gray-800">Lun-Sam : 7h-19h</p>
                 </div>
               </div>
             </div>
@@ -255,20 +277,36 @@ const Footer = () => {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-600 text-center md:text-left">
+            <p className="text-gray-800 text-center md:text-left">
               © 2024 MS Constructions 47. Tous droits réservés.
             </p>
             
-            <div className="flex items-center space-x-6">
-              <Link href="/mentions-legales" className="text-gray-600 hover:text-primary-600 transition-colors text-sm">
+            <div className="flex flex-wrap items-center justify-center md:justify-end space-x-6">
+              <Link href="/mentions-legales" className="text-gray-800 hover:text-primary-600 transition-colors text-sm">
                 Mentions légales
               </Link>
-              <Link href="/politique-confidentialite" className="text-gray-600 hover:text-primary-600 transition-colors text-sm">
-                Confidentialité
-              </Link>
-              <Link href="/cgv" className="text-gray-600 hover:text-primary-600 transition-colors text-sm">
+              <Link href="/cgv" className="text-gray-800 hover:text-primary-600 transition-colors text-sm">
                 CGV
               </Link>
+              <Link href="/politique-confidentialite" className="text-gray-800 hover:text-primary-600 transition-colors text-sm">
+                Confidentialité
+              </Link>
+              <a 
+                href="https://www.google.com/maps/place/Agen" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-800 hover:text-primary-600 transition-colors text-sm"
+              >
+                Google Maps
+              </a>
+              <a 
+                href="https://www.qualibat.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-800 hover:text-primary-600 transition-colors text-sm"
+              >
+                Qualibat
+              </a>
             </div>
           </div>
         </div>
