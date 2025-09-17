@@ -51,7 +51,7 @@ const HeroSection = () => {
               className="inline-flex items-center rounded-full bg-primary-100/70 border border-primary-200 px-6 py-2 text-sm font-semibold text-primary-800 mb-6"
             >
               <div className="w-2 h-2 bg-primary-500 rounded-full mr-3 animate-pulse-gentle"></div>
-              35 ans d'expérience • Lot-et-Garonne
+              35 ans d&apos;expérience • Lot-et-Garonne
             </motion.div>
 
             {/* Titre principal */}
@@ -71,7 +71,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-        className="text-lg sm:text-xl text-gray-700 mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+  className="text-lg sm:text-xl text-gray-900 mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
               Depuis 35 ans, MS Constructions 47 réalise vos projets de maçonnerie avec 
               <span className="font-semibold text-gray-900"> expertise</span> et 
@@ -92,7 +92,7 @@ const HeroSection = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ delay: 0.9 + index * 0.1 }}
-                  className="flex items-center space-x-3 text-gray-700"
+                  className="flex items-center space-x-3 text-gray-900"
                 >
                   <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center">
                     <CheckIcon className="w-3 h-3 text-primary-600" />
@@ -115,7 +115,7 @@ const HeroSection = () => {
               >
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="w-full sm:w-auto bg-gradient-to-r from-[#E53935] to-[#D32F2F] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-[#F44336] hover:to-[#C62828] transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E53935]"
                 >
                   Demander un devis gratuit
                 </Link>
@@ -127,7 +127,7 @@ const HeroSection = () => {
               >
                 <a
                   href="tel:0553123456"
-                  className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-white text-gray-700 px-8 py-4 rounded-xl font-semibold text-lg border-2 border-gray-200 hover:border-primary-200 hover:text-primary-600 transition-all duration-200"
+                  className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg border-2 border-gray-300 hover:border-primary-300 hover:text-primary-600 transition-all duration-200"
                 >
                   <PhoneIcon className="w-5 h-5" />
                   <span>05 53 12 34 56</span>
@@ -146,7 +146,7 @@ const HeroSection = () => {
             {/* Statistiques principales */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
               <h3 className="text-lg font-bold text-gray-900 mb-6 text-center">
-                Nos résultats parlent d'eux-mêmes
+                Nos résultats parlent d&apos;eux-mêmes
               </h3>
               <div className="space-y-6">
                 {stats.map((stat, index) => (
@@ -162,7 +162,7 @@ const HeroSection = () => {
                     </div>
                     <div>
                       <div className="text-2xl font-bold text-gray-900">{stat.number}</div>
-                      <div className="text-sm text-gray-800">{stat.label}</div>
+                      <div className="text-sm text-gray-900">{stat.label}</div>
                     </div>
                   </motion.div>
                 ))}
@@ -181,9 +181,9 @@ const HeroSection = () => {
                   <StarIcon key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <blockquote className="text-gray-700 font-medium mb-4 italic">
-                "Travail exceptionnel, respect des délais et tarifs justes. 
-                Je recommande vivement MS Constructions 47 !"
+              <blockquote className="text-gray-900 font-medium mb-4 italic">
+                &quot;Travail exceptionnel, respect des délais et tarifs justes. 
+                Je recommande vivement MS Constructions 47 !&quot;
               </blockquote>
               <cite className="text-sm text-primary-600 font-semibold">
                 — Marie Dubois, Agen
@@ -197,8 +197,8 @@ const HeroSection = () => {
               transition={{ delay: 2, duration: 0.8 }}
               className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center"
             >
-              <h4 className="font-bold text-gray-900 mb-3">Zone d'intervention</h4>
-              <p className="text-gray-800 text-sm mb-4">
+              <h4 className="font-bold text-gray-900 mb-3">Zone d&apos;intervention</h4>
+              <p className="text-gray-900 text-sm mb-4">
                 Nous intervenons dans tout le département du Lot-et-Garonne
               </p>
               <div className="flex flex-wrap gap-2 justify-center">

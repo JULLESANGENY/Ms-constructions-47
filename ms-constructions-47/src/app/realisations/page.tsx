@@ -97,7 +97,7 @@ const projects = [
 export default function RealisationsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedProject, setSelectedProject] = useState<any>(null)
+  // Note: Modal detail view deferred; no selected project state needed currently.
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -127,12 +127,12 @@ export default function RealisationsPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-neutral-900 mb-6">
               Nos <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Réalisations</span>
             </h1>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-900 max-w-3xl mx-auto mb-8">
               Découvrez nos projets récents dans tout le Lot-et-Garonne. 
               35 ans d&apos;expérience au service de votre satisfaction.
             </p>
             
-            <div className="flex justify-center space-x-6 text-sm text-neutral-600">
+            <div className="flex justify-center space-x-6 text-sm text-gray-900">
               <div className="flex items-center space-x-2">
                 <BuildingOfficeIcon className="h-5 w-5 text-primary-500" />
                 <span>500+ projets réalisés</span>
@@ -163,7 +163,7 @@ export default function RealisationsPage() {
                   className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
                     selectedCategory === category.id
                       ? 'bg-primary-500 text-white shadow-lg'
-                      : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
+                      : 'bg-neutral-100 text-gray-900 hover:bg-neutral-200'
                   }`}
                 >
                   {category.name} ({category.count})
@@ -203,8 +203,7 @@ export default function RealisationsPage() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl shadow-premium overflow-hidden group hover:shadow-premium-lg transition-all duration-300 cursor-pointer"
-                  onClick={() => setSelectedProject(project)}
+                  className="bg-white rounded-2xl shadow-premium overflow-hidden group hover:shadow-premium-lg transition-all duration-300"
                 >
                   {/* Image */}
                   <div className="relative h-48 bg-gradient-to-br from-neutral-200 to-neutral-300 overflow-hidden">
@@ -228,10 +227,10 @@ export default function RealisationsPage() {
                       <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 transition-colors duration-200">
                         {project.title}
                       </h3>
-                      <span className="text-sm text-neutral-500">{project.year}</span>
+                      <span className="text-sm text-gray-900">{project.year}</span>
                     </div>
 
-                    <div className="flex items-center space-x-4 text-sm text-neutral-600 mb-4">
+                    <div className="flex items-center space-x-4 text-sm text-gray-900 mb-4">
                       <div className="flex items-center space-x-1">
                         <MapPinIcon className="h-4 w-4" />
                         <span>{project.location}</span>
@@ -242,7 +241,7 @@ export default function RealisationsPage() {
                       </div>
                     </div>
 
-                    <p className="text-neutral-600 text-sm leading-relaxed mb-4">
+                    <p className="text-gray-900 text-sm leading-relaxed mb-4">
                       {project.description}
                     </p>
 
@@ -257,7 +256,7 @@ export default function RealisationsPage() {
                         </span>
                       ))}
                       {project.features.length > 2 && (
-                        <span className="text-xs text-neutral-500 self-center">
+                        <span className="text-xs text-gray-900 self-center">
                           +{project.features.length - 2} autres
                         </span>
                       )}
@@ -274,7 +273,7 @@ export default function RealisationsPage() {
               <h3 className="text-lg font-semibold text-neutral-900 mb-2">
                 Aucun projet trouvé
               </h3>
-              <p className="text-neutral-600 mb-6">
+              <p className="text-gray-900 mb-6">
                 Essayez de modifier vos critères de recherche ou sélectionnez une autre catégorie.
               </p>
               <Button onClick={() => { setSelectedCategory('all'); setSearchTerm('') }}>

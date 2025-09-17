@@ -160,7 +160,7 @@ export default function ServicesClient() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
               Nos <span className="bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-600 bg-clip-text text-transparent">Services</span>
             </h1>
-            <p className="text-xl text-gray-800 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-900 max-w-3xl mx-auto mb-8">
               Depuis 35 ans, nous accompagnons particuliers et professionnels 
               dans tous leurs projets de construction et de rénovation dans le Lot-et-Garonne.
             </p>
@@ -205,11 +205,11 @@ export default function ServicesClient() {
                     </div>
                     <div className="sm:space-y-0 space-y-2">
                       <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">{service.name}</h2>
-                      <p className="text-base lg:text-lg text-gray-800">{service.shortDesc}</p>
+                      <p className="text-base lg:text-lg text-gray-900">{service.shortDesc}</p>
                     </div>
                   </div>
 
-                  <p className="text-gray-700 leading-relaxed mb-6">
+                  <p className="text-gray-900 leading-relaxed mb-6">
                     {service.fullDesc}
                   </p>
 
@@ -218,18 +218,18 @@ export default function ServicesClient() {
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-2">
                         <CheckIcon className="h-4 w-4 text-primary-500 flex-shrink-0" />
-                        <span className="text-sm text-gray-800">{feature}</span>
+                        <span className="text-sm text-gray-900">{feature}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Prix */}
                   <div className="bg-gradient-to-r from-primary-50 to-gray-50 rounded-lg p-4 mb-6">
-                    <p className="text-sm text-gray-800 mb-1">Tarification indicative :</p>
+                    <p className="text-sm text-gray-900 mb-1">Tarification indicative :</p>
                     <p className="text-xl font-bold text-primary-600">{service.price}</p>
                   </div>
 
-                  <Button variant="primary" size="lg" className="group">
+                  <Button variant="cta" size="lg" className="group">
                     Demander un devis
                     <ArrowRightIcon className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
@@ -243,7 +243,7 @@ export default function ServicesClient() {
                       {service.projects.map((project, idx) => (
                         <div key={idx} className="flex items-center space-x-3 p-3 bg-white rounded-lg shadow-sm">
                           <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                          <span className="text-gray-700">{project}</span>
+                          <span className="text-gray-900">{project}</span>
                         </div>
                       ))}
                     </div>
@@ -267,7 +267,7 @@ export default function ServicesClient() {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Notre <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Processus</span>
             </h2>
-            <p className="text-lg text-gray-800 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
               Une méthode éprouvée pour garantir la réussite de votre projet
             </p>
           </motion.div>
@@ -285,7 +285,7 @@ export default function ServicesClient() {
                   {step.step}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-800 leading-relaxed">{step.description}</p>
+                <p className="text-sm text-gray-900 leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </div>

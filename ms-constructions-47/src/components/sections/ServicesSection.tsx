@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, type Variants } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { 
   HomeIcon, 
@@ -66,13 +66,13 @@ const ServicesSection = () => {
     }
   }
 
-  const cardVariants: any = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 40, scale: 0.98 },
     visible: { 
       opacity: 1, 
       y: 0, 
       scale: 1, 
-      transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.4, ease: 'easeOut' }
     }
   }
 
@@ -110,10 +110,10 @@ const ServicesSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl text-gray-900 max-w-3xl mx-auto"
           >
             Des solutions complètes pour tous vos projets de maçonnerie, 
-            de la construction à la rénovation, avec 35 ans d'expertise à votre service.
+            de la construction à la rénovation, avec 35 ans d&apos;expertise à votre service.
           </motion.p>
         </motion.div>
 
@@ -135,8 +135,10 @@ const ServicesSection = () => {
             >
               <div className="h-full bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-200">
                 {/* Image de tête */}
-                <div className="relative h-40 rounded-xl overflow-hidden mb-6">
-                  <img src={service.imageUrl} alt={service.title} className="w-full h-full object-cover" />
+                <div
+                  className="relative h-40 rounded-xl overflow-hidden mb-6"
+                  style={{ backgroundImage: `url(${service.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   <div className="absolute bottom-3 left-3 w-10 h-10 bg-white/90 backdrop-blur rounded-lg flex items-center justify-center shadow">
                     <service.icon className="w-5 h-5 text-primary-600" />
@@ -149,7 +151,7 @@ const ServicesSection = () => {
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-800 leading-relaxed">
+                  <p className="text-gray-900 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -163,7 +165,7 @@ const ServicesSection = () => {
                         className="flex items-center space-x-3 text-sm"
                       >
                         <CheckIcon className="w-4 h-4 text-primary-500 flex-shrink-0" />
-                        <span className="text-gray-800">{feature}</span>
+                        <span className="text-gray-900">{feature}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -176,7 +178,7 @@ const ServicesSection = () => {
                         animate={hoveredCard === index ? { x: 5 } : { x: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <ArrowRightIcon className="w-5 h-5 text-gray-700 group-hover:text-primary-600 transition-colors" />
+                        <ArrowRightIcon className="w-5 h-5 text-gray-900 group-hover:text-primary-600 transition-colors" />
                       </motion.div>
                     </div>
                   </div>
@@ -186,7 +188,7 @@ const ServicesSection = () => {
                     href="/contact"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full mt-4 px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors duration-200 shadow-md hover:shadow-lg"
+                    className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-[#E53935] to-[#D32F2F] text-white font-semibold rounded-xl hover:from-[#F44336] hover:to-[#C62828] transition-all duration-200 shadow-md hover:shadow-lg"
                   >
                     Demander un devis
                   </motion.a>
@@ -203,7 +205,7 @@ const ServicesSection = () => {
           transition={{ delay: 1.2, duration: 0.8 }}
           className="text-center mt-16"
         >
-          <div className="bg-primary-600 rounded-3xl p-12 text-white">
+          <div className="bg-secondary-600 rounded-3xl p-12 text-white">
             <h3 className="text-2xl sm:text-3xl font-bold mb-4">
               Prêt à démarrer votre projet ?
             </h3>
@@ -216,7 +218,7 @@ const ServicesSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-colors shadow-lg"
+                className="bg-white text-secondary-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-colors shadow-lg"
               >
                 Demander un devis gratuit
               </motion.button>
@@ -225,7 +227,7 @@ const ServicesSection = () => {
                 href="tel:0553123456"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-2 text-white bg-primary-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-800 transition-colors"
+                className="flex items-center space-x-2 text-white bg-secondary-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-secondary-800 transition-colors"
               >
                 <span>📞 05 53 12 34 56</span>
               </motion.a>

@@ -6,8 +6,7 @@ import {
   TrophyIcon,
   AcademicCapIcon,
   ShieldCheckIcon,
-  CalendarDaysIcon,
-  MapPinIcon
+  CalendarDaysIcon
 } from '@heroicons/react/24/outline'
 import { useInView } from 'react-intersection-observer'
 import Button from '@/components/ui/Button'
@@ -142,7 +141,7 @@ export default function AProposPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-neutral-900 mb-6">
               À <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Propos</span>
             </h1>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-900 max-w-3xl mx-auto mb-8">
               Depuis 1989, MS Constructions 47 accompagne particuliers et professionnels 
               dans leurs projets de construction et rénovation avec passion et expertise.
             </p>
@@ -150,15 +149,15 @@ export default function AProposPage() {
             <div className="flex justify-center space-x-8 text-center">
               <div>
                 <div className="text-3xl font-bold text-primary-600">35+</div>
-                <div className="text-sm text-neutral-600">Années d&apos;expérience</div>
+                <div className="text-sm text-gray-900">Années d&apos;expérience</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-secondary-600">500+</div>
-                <div className="text-sm text-neutral-600">Projets réalisés</div>
+                <div className="text-sm text-gray-900">Projets réalisés</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-primary-600">100%</div>
-                <div className="text-sm text-neutral-600">Clients satisfaits</div>
+                <div className="text-sm text-gray-900">Clients satisfaits</div>
               </div>
             </div>
           </motion.div>
@@ -177,7 +176,7 @@ export default function AProposPage() {
               <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-6">
                 Notre <span className="text-primary-600">Histoire</span>
               </h2>
-              <div className="space-y-4 text-neutral-700 leading-relaxed">
+              <div className="space-y-4 text-gray-900 leading-relaxed">
                 <p>
                   Fondée en 1989 par Michel Soulet, MS Constructions 47 est née de la passion 
                   d&apos;un artisan pour son métier et de sa volonté d&apos;offrir un service de qualité 
@@ -206,7 +205,7 @@ export default function AProposPage() {
                 <div className="text-center">
                   <UserGroupIcon className="h-20 w-20 text-primary-500 mx-auto mb-4" />
                   <h3 className="text-lg font-semibold text-neutral-900 mb-2">Notre équipe</h3>
-                  <p className="text-neutral-600">Photo d&apos;équipe à venir</p>
+                  <p className="text-gray-900">Photo d&apos;équipe à venir</p>
                 </div>
               </div>
             </motion.div>
@@ -226,7 +225,7 @@ export default function AProposPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
               Nos <span className="text-secondary-600">Valeurs</span>
             </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
               Les principes qui guident notre action au quotidien
             </p>
           </motion.div>
@@ -244,7 +243,7 @@ export default function AProposPage() {
                   <value.icon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-neutral-900 mb-3">{value.title}</h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">{value.description}</p>
+                <p className="text-sm text-gray-900 leading-relaxed">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -263,7 +262,7 @@ export default function AProposPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
               Notre <span className="text-primary-600">Évolution</span>
             </h2>
-            <p className="text-lg text-neutral-600">35 années de croissance et d&apos;innovation</p>
+            <p className="text-lg text-gray-900">35 années de croissance et d&apos;innovation</p>
           </motion.div>
 
           <div className="space-y-8">
@@ -285,7 +284,7 @@ export default function AProposPage() {
                     <h3 className="text-lg font-bold text-neutral-900">{event.title}</h3>
                     <span className="text-sm font-medium text-primary-600">{event.year}</span>
                   </div>
-                  <p className="text-neutral-600">{event.description}</p>
+                  <p className="text-gray-900">{event.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -305,7 +304,7 @@ export default function AProposPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
               Notre <span className="text-secondary-600">Équipe</span>
             </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
               Des professionnels passionnés et expérimentés à votre service
             </p>
           </motion.div>
@@ -324,7 +323,7 @@ export default function AProposPage() {
                 </div>
                 <h3 className="text-lg font-bold text-neutral-900 mb-1">{member.name}</h3>
                 <p className="text-sm font-medium text-primary-600 mb-2">{member.role}</p>
-                <div className="space-y-1 text-sm text-neutral-600">
+                <div className="space-y-1 text-sm text-gray-900">
                   <div className="flex items-center justify-center space-x-1">
                     <CalendarDaysIcon className="h-4 w-4" />
                     <span>{member.experience}</span>
@@ -358,7 +357,7 @@ export default function AProposPage() {
                   <ShieldCheckIcon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900 mb-2">{cert.name}</h3>
-                <p className="text-neutral-600 mb-2">{cert.description}</p>
+                <p className="text-gray-900 mb-2">{cert.description}</p>
                 <p className="text-sm text-primary-600 font-medium">Depuis {cert.year}</p>
               </motion.div>
             ))}
@@ -372,7 +371,7 @@ export default function AProposPage() {
           <h2 className="text-3xl font-bold text-neutral-900 mb-4">
             Prêt à confier votre projet à nos experts ?
           </h2>
-          <p className="text-lg text-neutral-600 mb-8">
+          <p className="text-lg text-gray-900 mb-8">
             Bénéficiez de notre expérience et de notre savoir-faire pour concrétiser vos projets
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

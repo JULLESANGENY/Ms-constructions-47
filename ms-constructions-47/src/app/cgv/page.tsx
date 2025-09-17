@@ -10,12 +10,12 @@ export default function CGVPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 lg:px-8 py-16">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Conditions Générales de Vente</h1>
-      <p className="text-gray-600 mb-8">
+      <p className="text-gray-900 mb-8">
         Les présentes conditions générales régissent les relations contractuelles entre MS Constructions 47 et ses clients.
         Elles précisent notamment les modalités de devis, d’exécution des travaux, de paiement, de garanties et de responsabilité.
       </p>
 
-      <div className="space-y-6 text-gray-700">
+      <div className="space-y-6 text-gray-900">
         <section>
           <h2 className="text-xl font-semibold text-gray-900 mb-2">1. Devis et validité</h2>
           <p>Les devis sont gratuits et valables 30 jours à compter de leur date d’émission, sauf mention contraire.</p>

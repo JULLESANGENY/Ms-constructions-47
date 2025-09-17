@@ -66,7 +66,7 @@ const TestimonialsSection = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4">
             Ils nous font <span className="bg-gradient-to-r from-construction-orange via-secondary-500 to-vibrant-500 bg-clip-text text-transparent">confiance</span>
           </h2>
-          <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-900 max-w-3xl mx-auto">
             Découvrez les témoignages de nos clients satisfaits dans tout le Lot-et-Garonne. 
             Leur confiance est notre plus belle récompense.
           </p>
@@ -94,7 +94,7 @@ const TestimonialsSection = () => {
                 </div>
 
                 {/* Content */}
-                <blockquote className="text-neutral-700 mb-6 leading-relaxed italic group-hover:text-neutral-800">
+                <blockquote className="text-gray-900 mb-6 leading-relaxed italic group-hover:text-gray-900">
                   &quot;{testimonial.content}&quot;
                 </blockquote>
 
@@ -105,7 +105,7 @@ const TestimonialsSection = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-neutral-900 group-hover:text-construction-orange transition-colors duration-300">{testimonial.name}</div>
-                    <div className="text-sm text-neutral-500 group-hover:text-neutral-600">{testimonial.location}</div>
+                    <div className="text-sm text-gray-900 group-hover:text-gray-900">{testimonial.location}</div>
                     <div className="text-xs text-vibrant-600 font-medium group-hover:text-construction-orange">{testimonial.project}</div>
                   </div>
                 </div>
@@ -137,7 +137,7 @@ const TestimonialsSection = () => {
               <div className={`text-3xl sm:text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}>
                 {stat.value}
               </div>
-              <div className="text-sm text-neutral-600 group-hover:text-neutral-800 transition-colors duration-300">
+              <div className="text-sm text-gray-900 group-hover:text-gray-900 transition-colors duration-300">
                 {stat.label}
               </div>
             </motion.div>
@@ -153,7 +153,7 @@ const TestimonialsSection = () => {
         >
           <a
             href="#"
-            className="inline-flex items-center space-x-2 text-neutral-600 hover:bg-gradient-to-r hover:from-construction-orange hover:to-vibrant-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 group"
+            className="inline-flex items-center space-x-2 text-gray-900 hover:bg-gradient-to-r hover:from-construction-orange hover:to-vibrant-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 group"
           >
             <span>Voir tous nos avis sur</span>
             <span className="font-semibold">Google Reviews</span>

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { v } from '@/lib/version';
+// import { v } from '@/lib/version';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon, PhoneIcon } from '@heroicons/react/24/outline';
@@ -67,7 +67,7 @@ const Header: React.FC = () => {
               <span className="text-lg lg:text-2xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
                 MS Constructions
               </span>
-              <span className="text-xs lg:text-sm text-gray-700 font-medium hidden sm:block">Lot-et-Garonne</span>
+              <span className="text-xs lg:text-sm text-gray-900 font-medium hidden sm:block">Lot-et-Garonne</span>
             </div>
           </Link>
 
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
             <motion.a
               href="tel:0553123456"
               whileHover={{ scale: 1.05 }}
-              className="flex items-center space-x-2 text-gray-700 hover:text-primary-600 transition-colors"
+              className="flex items-center space-x-2 text-gray-900 hover:text-primary-600 transition-colors"
             >
               <PhoneIcon className="w-5 h-5" />
               <span className="font-medium text-sm">05 53 12 34 56</span>
@@ -108,7 +108,7 @@ const Header: React.FC = () => {
             >
               <Link
                 href="/contact"
-                className="bg-secondary-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-secondary-700 transition-colors duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-500"
+                className="bg-gradient-to-r from-[#E53935] to-[#D32F2F] text-white px-6 py-3 rounded-xl font-semibold hover:from-[#F44336] hover:to-[#C62828] transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E53935]"
               >
                 Demander un devis gratuit
               </Link>
@@ -178,7 +178,7 @@ const Header: React.FC = () => {
                 <div className="pt-4 mt-4 border-t border-gray-200 space-y-3">
                   <a
                     href="tel:0553123456"
-                    className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
+                    className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-900 hover:text-primary-600 hover:bg-gray-50 transition-colors"
                   >
                     <PhoneIcon className="w-5 h-5" />
                     <span className="font-medium">05 53 12 34 56</span>
@@ -186,10 +186,10 @@ const Header: React.FC = () => {
                   
                   <Link
                     href="/contact"
-                    className="block w-full text-center bg-secondary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary-700 transition-colors"
+                    className="block w-full text-center bg-gradient-to-r from-[#E53935] to-[#D32F2F] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#F44336] hover:to-[#C62828] transition-all shadow-md hover:shadow-lg"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Devis gratuit
+                    Demander un devis gratuit
                   </Link>
                 </div>
               </div>

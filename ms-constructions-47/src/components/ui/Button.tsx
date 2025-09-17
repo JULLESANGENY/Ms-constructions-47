@@ -3,7 +3,7 @@ function cnSimple(...classes: Array<string | undefined>) {
 }
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'cta'
   size?: 'sm' | 'md' | 'lg' | 'xl'
   children: React.ReactNode
 }
@@ -21,7 +21,8 @@ const Button: React.FC<ButtonProps> = ({
     primary: "bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500 shadow-md hover:shadow-lg",
     secondary: "bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500 shadow-md hover:shadow-lg",
     outline: "border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white focus:ring-primary-500",
-    ghost: "text-primary-500 hover:bg-primary-50 focus:ring-primary-500"
+    ghost: "text-primary-500 hover:bg-primary-50 focus:ring-primary-500",
+    cta: "bg-gradient-to-r from-[#E53935] to-[#D32F2F] text-white shadow-lg hover:shadow-xl hover:from-[#F44336] hover:to-[#C62828] focus:ring-[#E53935]"
   }
   
   const sizes = {

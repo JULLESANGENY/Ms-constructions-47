@@ -99,7 +99,7 @@ export default function QuickContactForm() {
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
           Devis gratuit sous 24h
         </h3>
-        <p className="text-gray-600">
+        <p className="text-gray-900">
           Remplissez ce formulaire rapide pour recevoir votre devis personnalisé
         </p>
       </div>
@@ -107,7 +107,7 @@ export default function QuickContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Nom */}
         <div>
-          <label htmlFor="nom" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="nom" className="block text-sm font-medium text-gray-900 mb-2">
             <UserIcon className="w-4 h-4 inline mr-2" />
             Nom complet *
           </label>
@@ -125,7 +125,7 @@ export default function QuickContactForm() {
 
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
             <EnvelopeIcon className="w-4 h-4 inline mr-2" />
             Email *
           </label>
@@ -143,7 +143,7 @@ export default function QuickContactForm() {
 
         {/* Téléphone */}
         <div>
-          <label htmlFor="telephone" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="telephone" className="block text-sm font-medium text-gray-900 mb-2">
             <PhoneIcon className="w-4 h-4 inline mr-2" />
             Téléphone *
           </label>
@@ -161,7 +161,7 @@ export default function QuickContactForm() {
 
         {/* Type de projet */}
         <div>
-          <label htmlFor="projet" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="projet" className="block text-sm font-medium text-gray-900 mb-2">
             <ChatBubbleLeftRightIcon className="w-4 h-4 inline mr-2" />
             Type de projet *
           </label>
@@ -183,7 +183,7 @@ export default function QuickContactForm() {
 
       {/* Message optionnel */}
       <div className="mt-6">
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
           Message (optionnel)
         </label>
         <textarea
@@ -222,7 +222,7 @@ export default function QuickContactForm() {
       </div>
 
       {/* Info légale */}
-      <p className="text-xs text-gray-500 mt-4 text-center">
+      <p className="text-xs text-gray-900 mt-4 text-center">
         Vos données sont protégées et ne seront jamais partagées. 
         Réponse garantie sous 24h.
       </p>

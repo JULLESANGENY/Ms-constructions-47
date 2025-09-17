@@ -39,7 +39,7 @@ export default function OptimizedImage({
   if (error) {
     return (
       <div 
-        className={`flex items-center justify-center bg-gray-200 text-gray-500 ${className}`}
+        className={`flex items-center justify-center bg-gray-200 text-gray-900 ${className}`}
         style={{ width, height }}
       >
         <span className="text-sm">Image non disponible</span>
@@ -54,7 +54,7 @@ export default function OptimizedImage({
           className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center"
           style={{ width, height }}
         >
-          <div className="w-8 h-8 border-2 border-gray-300 border-t-primary-500 rounded-full animate-spin"></div>
+          <div className="w-8 h-8 border-2 border-gray-500 border-t-primary-500 rounded-full animate-spin"></div>
         </div>
       )}
       

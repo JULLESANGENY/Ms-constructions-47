@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/outline'
 import { useInView } from 'react-intersection-observer'
-import Image from 'next/image'
 
 const testimonials = [
   {
@@ -90,7 +89,7 @@ export default function TestimonialsPage() {
               </span>{' '}
               Clients
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-900 max-w-3xl mx-auto mb-8">
               Découvrez ce que nos clients disent de nos services. 
               Leurs projets réussis témoignent de notre savoir-faire et de notre engagement qualité.
             </p>
@@ -143,7 +142,7 @@ export default function TestimonialsPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Ils nous font confiance
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
               Découvrez les retours de nos clients sur nos réalisations dans tout le Lot-et-Garonne
             </p>
           </motion.div>
@@ -170,8 +169,8 @@ export default function TestimonialsPage() {
                 {/* Quote */}
                 <div className="mb-6">
                   <ChatBubbleLeftIcon className="h-8 w-8 text-primary-200 mb-4" />
-                  <p className="text-gray-700 leading-relaxed italic">
-                    "{testimonial.content}"
+                  <p className="text-gray-900 leading-relaxed italic">
+                    {testimonial.content}
                   </p>
                 </div>
 
@@ -182,11 +181,11 @@ export default function TestimonialsPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-500">{testimonial.location}</p>
+                    <p className="text-sm text-gray-900">{testimonial.location}</p>
                     <p className="text-sm text-primary-600 font-medium">{testimonial.project}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-xs text-gray-400">{testimonial.date}</p>
+                    <p className="text-xs text-gray-900">{testimonial.date}</p>
                   </div>
                 </div>
               </motion.div>
