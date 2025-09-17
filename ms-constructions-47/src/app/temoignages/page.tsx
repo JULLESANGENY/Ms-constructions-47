@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/outline'
 import { useInView } from 'react-intersection-observer'
+import { useEffect, useRef, useState } from 'react'
 
 const testimonials = [
   {
@@ -71,6 +72,37 @@ export default function TestimonialsPage() {
     threshold: 0.1
   })
 
+  // Mobile carousel state
+  const carouselRef = useRef<HTMLDivElement | null>(null)
+  const [current, setCurrent] = useState(0)
+
+  // Track active slide on scroll
+  useEffect(() => {
+    const el = carouselRef.current
+    if (!el) return
+    const onScroll = () => {
+      const w = el.clientWidth
+      if (w > 0) {
+        const idx = Math.round(el.scrollLeft / w)
+        setCurrent(Math.max(0, Math.min(testimonials.length - 1, idx)))
+      }
+    }
+    el.addEventListener('scroll', onScroll, { passive: true })
+    return () => el.removeEventListener('scroll', onScroll as any)
+  }, [])
+
+  // Auto-scroll every ~5.5s on mobile
+  useEffect(() => {
+    const el = carouselRef.current
+    if (!el) return
+    const id = setInterval(() => {
+      const w = el.clientWidth
+      const next = (current + 1) % testimonials.length
+      el.scrollTo({ left: next * w, behavior: 'smooth' })
+    }, 5500)
+    return () => clearInterval(id)
+  }, [current])
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -131,7 +163,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Témoignages */}
-      <section ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section ref={ref} className="py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -147,7 +179,73 @@ export default function TestimonialsPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Mobile carousel */}
+          <div className="md:hidden">
+            <div
+              ref={carouselRef}
+              className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 -mx-4 px-4 pb-4"
+            >
+              {testimonials.map((testimonial, index) => (
+                <div key={testimonial.id} className="snap-center shrink-0 w-full">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-white rounded-2xl p-6 shadow-lg active:scale-[0.98] transition-all duration-300 relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-full blur-2xl opacity-50"></div>
+
+                    <div className="flex items-center mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <StarIcon key={i} className="h-5 w-5 text-yellow-400" />
+                      ))}
+                    </div>
+
+                    <div className="mb-6">
+                      <ChatBubbleLeftIcon className="h-8 w-8 text-primary-200 mb-3" />
+                      <p className="text-gray-900 leading-relaxed italic line-clamp-2 sm:line-clamp-none">
+                        {testimonial.content}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center space-x-4 pt-4 border-t border-gray-100">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center text-white text-xl">
+                        {testimonial.avatar}
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                        <p className="text-sm text-gray-600">{testimonial.location}</p>
+                        <p className="text-sm text-primary-600 font-medium">{testimonial.project}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-xs text-gray-500">{testimonial.date}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
+            {/* Dots */}
+            <div className="flex items-center justify-center gap-2 mt-2">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => {
+                    const el = carouselRef.current
+                    if (!el) return
+                    const w = el.clientWidth
+                    el.scrollTo({ left: i * w, behavior: 'smooth' })
+                  }}
+                  aria-label={`Aller au témoignage ${i + 1}`}
+                  className={`h-2 w-2 rounded-full transition-all ${i === current ? 'bg-primary-600 w-6' : 'bg-gray-300'}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop grid */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
@@ -156,36 +254,29 @@ export default function TestimonialsPage() {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
               >
-                {/* Décoration */}
                 <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-full blur-2xl opacity-50"></div>
-                
-                {/* Rating */}
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <StarIcon key={i} className="h-5 w-5 text-yellow-400" />
                   ))}
                 </div>
-
-                {/* Quote */}
                 <div className="mb-6">
                   <ChatBubbleLeftIcon className="h-8 w-8 text-primary-200 mb-4" />
                   <p className="text-gray-900 leading-relaxed italic">
                     {testimonial.content}
                   </p>
                 </div>
-
-                {/* Client Info */}
                 <div className="flex items-center space-x-4 pt-4 border-t border-gray-100">
                   <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center text-white text-xl">
                     {testimonial.avatar}
                   </div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-900">{testimonial.location}</p>
+                    <p className="text-sm text-gray-600">{testimonial.location}</p>
                     <p className="text-sm text-primary-600 font-medium">{testimonial.project}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-xs text-gray-900">{testimonial.date}</p>
+                    <p className="text-xs text-gray-500">{testimonial.date}</p>
                   </div>
                 </div>
               </motion.div>

@@ -78,7 +78,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${inter.variable} ${montserrat.variable}`}>
-      <body className="font-sans antialiased bg-white text-gray-900 md:text-gray-900 pt-16 lg:pt-20">
+      <body className="font-sans antialiased bg-white text-gray-900 md:text-gray-900 pt-16 sm:pt-16 lg:pt-20">
         {/* Preconnect pour optimiser les fonts */}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useInView, type Variants } from 'framer-motion'
+import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { 
   HomeIcon, 
@@ -77,22 +78,22 @@ const ServicesSection = () => {
   }
 
   return (
-    <section ref={ref} className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section ref={ref} className="py-16 lg:py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
         {/* En-tête de section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-12"
+            className="text-center mb-12"
         >
           <motion.div
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : { scale: 0 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center rounded-full bg-primary-200/70 border border-primary-300 px-6 py-2 text-sm font-semibold text-primary-900 mb-4"
+            className="inline-flex items-center rounded-full bg-red-100 border border-red-200 px-6 py-2 text-sm font-semibold text-red-900 mb-4"
           >
-            <div className="w-2 h-2 bg-primary-500 rounded-full mr-3 animate-pulse-gentle"></div>
+            <div className="w-2 h-2 bg-red-500 rounded-full mr-3 animate-pulse-gentle"></div>
             Nos services premium
           </motion.div>
 
@@ -100,17 +101,17 @@ const ServicesSection = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-4"
+            className="text-[clamp(1.5rem,4vw,2.25rem)] font-black text-gray-900 mb-4"
           >
             Une expertise complète
-            <span className="block text-primary-600">pour tous vos projets</span>
+            <span className="block text-red-600">pour tous vos projets</span>
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-lg sm:text-xl text-gray-900 max-w-3xl mx-auto"
+            className="text-base text-gray-600 max-w-3xl mx-auto"
           >
             Des solutions complètes pour tous vos projets de maçonnerie, 
             de la construction à la rénovation, avec 35 ans d&apos;expertise à votre service.
@@ -122,7 +123,7 @@ const ServicesSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8"
         >
           {services.map((service, index) => (
             <motion.div
@@ -133,25 +134,35 @@ const ServicesSection = () => {
               whileHover={{ y: -5 }}
               className="relative group cursor-pointer"
             >
-              <div className="h-full bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-200">
+              <div className="h-full bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-red-200">
                 {/* Image de tête */}
-                <div
-                  className="relative h-40 rounded-xl overflow-hidden mb-6"
-                  style={{ backgroundImage: `url(${service.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-                >
+                <div className="relative h-40 rounded-xl overflow-hidden mb-6">
+                  <Image
+                    src={service.imageUrl}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={85}
+                    className="object-cover"
+                    loading="lazy"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  <div className="absolute bottom-3 left-3 w-10 h-10 bg-white/90 backdrop-blur rounded-lg flex items-center justify-center shadow">
-                    <service.icon className="w-5 h-5 text-primary-600" />
+                  <div className="absolute bottom-3 left-3 w-10 h-10 bg-white/90 backdrop-blur rounded-lg flex items-center justify-center shadow group-hover:rotate-3 transition-transform duration-300">
+                    {/* Icône colorée par service */}
+                    {index === 0 && <service.icon className="w-5 h-5" style={{ color: '#f97316' }} />}
+                    {index === 1 && <service.icon className="w-5 h-5" style={{ color: '#3b82f6' }} />}
+                    {index === 2 && <service.icon className="w-5 h-5" style={{ color: '#10b981' }} />}
+                    {index === 3 && <service.icon className="w-5 h-5" style={{ color: '#8b5cf6' }} />}
                   </div>
                 </div>
 
                 {/* Contenu */}
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+                  <h3 className="text-2xl lg:text-[24px] font-bold text-gray-900 group-hover:text-red-600 transition-colors">
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-900 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -164,8 +175,8 @@ const ServicesSection = () => {
                         animate={hoveredCard === index ? { opacity: 1 } : { opacity: 0.7 }}
                         className="flex items-center space-x-3 text-sm"
                       >
-                        <CheckIcon className="w-4 h-4 text-primary-500 flex-shrink-0" />
-                        <span className="text-gray-900">{feature}</span>
+                        <CheckIcon className="w-4 h-4 text-red-500 flex-shrink-0" />
+                        <span className="text-gray-600">{feature}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -173,12 +184,12 @@ const ServicesSection = () => {
                   {/* Prix */}
                   <div className="pt-4 border-t border-gray-100">
                     <div className="flex items-center justify-between">
-                      <span className="text-lg font-bold text-primary-600">{service.price}</span>
+                      <span className="text-lg font-bold text-red-600">{service.price}</span>
                       <motion.div
                         animate={hoveredCard === index ? { x: 5 } : { x: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <ArrowRightIcon className="w-5 h-5 text-gray-900 group-hover:text-primary-600 transition-colors" />
+                        <ArrowRightIcon className="w-5 h-5 text-gray-900 group-hover:text-red-600 transition-colors" />
                       </motion.div>
                     </div>
                   </div>
@@ -188,7 +199,7 @@ const ServicesSection = () => {
                     href="/contact"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-[#E53935] to-[#D32F2F] text-white font-semibold rounded-xl hover:from-[#F44336] hover:to-[#C62828] transition-all duration-200 shadow-md hover:shadow-lg"
+                    className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-xl hover:from-red-500 hover:to-red-700 transition-all duration-200 shadow-md hover:shadow-lg min-h-[48px] focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2"
                   >
                     Demander un devis
                   </motion.a>
@@ -205,11 +216,11 @@ const ServicesSection = () => {
           transition={{ delay: 1.2, duration: 0.8 }}
           className="text-center mt-16"
         >
-          <div className="bg-secondary-600 rounded-3xl p-12 text-white">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+          <div className="bg-secondary-600 rounded-3xl p-8 lg:p-12 text-white">
+            <h3 className="text-[clamp(20px,3.5vw,28px)] font-bold mb-4">
               Prêt à démarrer votre projet ?
             </h3>
-            <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-primary-100 mb-8 max-w-2xl mx-auto">
               Obtenez un devis gratuit et personnalisé sous 24h. 
               Nos experts sont à votre écoute pour réaliser vos ambitions.
             </p>
@@ -218,7 +229,7 @@ const ServicesSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-secondary-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-colors shadow-lg"
+                className="bg-white text-secondary-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-colors shadow-lg min-h-[48px]"
               >
                 Demander un devis gratuit
               </motion.button>
@@ -227,7 +238,7 @@ const ServicesSection = () => {
                 href="tel:0553123456"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-2 text-white bg-secondary-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-secondary-800 transition-colors"
+                className="flex items-center space-x-2 text-white bg-secondary-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-secondary-800 transition-colors min-h-[48px]"
               >
                 <span>📞 05 53 12 34 56</span>
               </motion.a>

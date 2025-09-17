@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import { CheckIcon, StarIcon, ShieldCheckIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import { useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null)
@@ -25,17 +26,24 @@ const HeroSection = () => {
   return (
     <section 
       ref={ref}
-      className="relative min-h-[80vh] flex items-center justify-center bg-white pt-16 pb-12 overflow-hidden"
+  className="relative min-h-[80vh] flex items-center justify-center bg-white pt-14 sm:pt-16 pb-10 sm:pb-12 overflow-hidden"
     >
-      {/* Pattern de fond subtil */}
-      <div className="absolute inset-0 bg-dot-pattern opacity-30" style={{backgroundSize: '20px 20px'}}></div>
-      
-      {/* Éléments décoratifs subtils */}
-      <div className="absolute top-32 right-16 w-64 h-64 bg-primary-50 rounded-full opacity-40 blur-3xl"></div>
-      <div className="absolute bottom-32 left-16 w-48 h-48 bg-secondary-50 rounded-full opacity-30 blur-2xl"></div>
+      {/* Background image with overlay for depth */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=60"
+          alt="Chantier de construction"
+          fill
+          priority
+          sizes="100vw"
+          quality={85}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/10" />
+      </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           {/* Contenu principal */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -48,21 +56,22 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center rounded-full bg-primary-100/70 border border-primary-200 px-6 py-2 text-sm font-semibold text-primary-800 mb-6"
+              className="inline-flex items-center rounded-full bg-red-50 border border-red-200 px-6 py-2 text-sm font-semibold text-red-800 mb-6 shadow-sm"
+              aria-label="35 ans d'expérience, Lot-et-Garonne"
             >
-              <div className="w-2 h-2 bg-primary-500 rounded-full mr-3 animate-pulse-gentle"></div>
+              <div className="w-2 h-2 bg-red-500 rounded-full mr-3 animate-pulse-gentle"></div>
               35 ans d&apos;expérience • Lot-et-Garonne
             </motion.div>
 
             {/* Titre principal */}
-            <motion.h1
+      <motion.h1
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-        className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-4 text-gray-900"
+    className="text-[clamp(2rem,5vw,3rem)] font-black leading-[1.1] mb-4 text-gray-900 line-clamp-3 sm:line-clamp-none"
             >
               <span className="block">Votre expert en</span>
-              <span className="block text-primary-600">maçonnerie</span>
+              <span className="block text-red-600">maçonnerie</span>
               <span className="block">dans le 47</span>
             </motion.h1>
 
@@ -71,7 +80,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-  className="text-lg sm:text-xl text-gray-900 mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+  className="text-base text-gray-600 mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
               Depuis 35 ans, MS Constructions 47 réalise vos projets de maçonnerie avec 
               <span className="font-semibold text-gray-900"> expertise</span> et 
@@ -84,7 +93,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-        className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8"
+  className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8"
             >
               {features.map((feature, index) => (
                 <motion.div
@@ -92,10 +101,10 @@ const HeroSection = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ delay: 0.9 + index * 0.1 }}
-                  className="flex items-center space-x-3 text-gray-900"
+                  className="flex items-center space-x-3 text-gray-600"
                 >
-                  <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center">
-                    <CheckIcon className="w-3 h-3 text-primary-600" />
+                  <div className="flex-shrink-0 w-5 h-5 bg-red-100 rounded-full flex items-center justify-center">
+                    <CheckIcon className="w-3 h-3 text-red-600" />
                   </div>
                   <span className="font-medium">{feature}</span>
                 </motion.div>
@@ -107,7 +116,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ delay: 1, duration: 0.8 }}
-              className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4"
+              className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -115,7 +124,7 @@ const HeroSection = () => {
               >
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto bg-gradient-to-r from-[#E53935] to-[#D32F2F] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-[#F44336] hover:to-[#C62828] transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E53935]"
+                  className="w-full sm:w-auto bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:from-red-500 hover:to-red-700 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600 btn-shimmer min-h-[48px]"
                 >
                   Demander un devis gratuit
                 </Link>
@@ -127,7 +136,7 @@ const HeroSection = () => {
               >
                 <a
                   href="tel:0553123456"
-                  className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg border-2 border-gray-300 hover:border-primary-300 hover:text-primary-600 transition-all duration-200"
+                  className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg border-2 border-gray-300 hover:border-primary-300 hover:text-primary-600 transition-all duration-200 min-h-[48px]"
                 >
                   <PhoneIcon className="w-5 h-5" />
                   <span>05 53 12 34 56</span>
@@ -143,29 +152,36 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="lg:col-span-5 space-y-8"
           >
-            {/* Statistiques principales */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+            {/* Statistiques principales - responsive cards */}
+            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100">
               <h3 className="text-lg font-bold text-gray-900 mb-6 text-center">
                 Nos résultats parlent d&apos;eux-mêmes
               </h3>
-              <div className="space-y-6">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                    transition={{ delay: 1.2 + index * 0.2, type: "spring", stiffness: 100 }}
-                    className="flex items-center space-x-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
-                      <stat.icon className="w-6 h-6 text-primary-600" />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-gray-900">{stat.number}</div>
-                      <div className="text-sm text-gray-900">{stat.label}</div>
-                    </div>
-                  </motion.div>
-                ))}
+              <div className="grid grid-cols-1 gap-4">
+                {/* 35 années */}
+                <div className="flex items-center gap-4 p-6 bg-gray-50 border-l-4 border-red-600 rounded-r-xl">
+                  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-2xl">🏗️</div>
+                  <div>
+                    <div className="text-4xl font-bold text-gray-900">35</div>
+                    <div className="text-sm text-gray-600">Années d&apos;expérience</div>
+                  </div>
+                </div>
+                {/* 500+ projets */}
+                <div className="flex items-center gap-4 p-6 bg-gray-50 border-l-4 border-red-600 rounded-r-xl">
+                  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-2xl">📊</div>
+                  <div>
+                    <div className="text-4xl font-bold text-gray-900">500+</div>
+                    <div className="text-sm text-gray-600">Projets réalisés</div>
+                  </div>
+                </div>
+                {/* 100% clients */}
+                <div className="flex items-center gap-4 p-6 bg-gray-50 border-l-4 border-red-600 rounded-r-xl">
+                  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-2xl">⭐</div>
+                  <div>
+                    <div className="text-4xl font-bold text-gray-900">100%</div>
+                    <div className="text-sm text-gray-600">Clients satisfaits</div>
+                  </div>
+                </div>
               </div>
             </div>
 
